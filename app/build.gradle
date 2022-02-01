@@ -1,7 +1,9 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: "kotlin-kapt"
+apply plugin: 'dagger.hilt.android.plugin'
+
 
 android {
     compileSdk 32
@@ -29,6 +31,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
 }
 
 dependencies {
@@ -40,4 +47,123 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Constraint Layout
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+
+    // For Material Design
+    implementation 'com.google.android.material:material:1.5.0'
+
+    //For Support
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // For Card View
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //Facebook shimmer effect
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    // For Root Checking
+    implementation 'com.scottyab:rootbeer-lib:0.0.7'
+
+    //retrofit
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    // Android Rooms
+    def room_version = "2.4.1"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // glide
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    // Picasso Image Library
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Image Cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+    // Circular image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Rounded Image View
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // Pinch To Zoom Image View Library
+    implementation 'com.jsibbold:zoomage:1.2.0'
+
+    // Wasabeef Picasso Transformations --> Am using to blur picture of image view
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+
+    // Image Compression Library
+//    implementation 'id.zelory:compressor:2.1.0'
+
+//    // Firebase Database
+    implementation "com.google.firebase:firebase-database"
+//
+//    //Firebase Storage
+    implementation 'com.google.firebase:firebase-storage'
+//
+//    // Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth'
+
+
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'com.google.firebase:firebase-messaging'
+
+
+    // For Monitoring network changes
+    implementation 'com.novoda:merlin:1.2.0'
+
+    // kotlin
+
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+
+    //Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    // hilt di
+    implementation 'com.google.dagger:hilt-android:2.40.5'
+    kapt 'com.google.dagger:hilt-compiler:2.40.5'
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.40.5'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.40.5'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.40.5'
+    kaptTest 'com.google.dagger:hilt-compiler:2.40.5'
+
+
+//    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+//    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+
+    // gify
+    implementation 'com.giphy.sdk:ui:2.1.14'
+
+    // for ssp and sdp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+}
+
+kapt {
+    correctErrorTypes true
 }
